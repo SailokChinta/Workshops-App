@@ -1,2 +1,2 @@
-# workshop-app link
+# workshops-app link
 - https://sailokchinta.github.io/workshops-app/
