@@ -1,0 +1,69 @@
+.navbar {
+    height: 40px;
+    background-color: navy; /* background-* properties - please explore, also background shorthand property */
+}
+
+.nav, .list-unstyle {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    display: inline;
+}
+
+.nav a {
+    color: white;
+    padding: 5px 10px;
+    line-height: 40px;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    color: white;
+    background-color: darkgrey;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.img-fluid {
+    width: 100%;
+}
+
+.card {
+    padding: 20px;
+    border: 1px solid darkgrey;
+    border-radius: 4px;
+}
+
+.text-center {
+    text-align: center !important; /* important makes this css rule override all specificity rules */
+}
+
+.my-3 {
+    margin-top: 0.5em !important;
+    margin-bottom: 0.5em !important;
+}
+
+/* this is a flex box parent element */
+
+.row {
+    display: flex;
+    flex-direction: row; /* arrange children rowwise i.e horizontally */
+    flex-wrap: wrap; /* allow children to wrap to next line rathert than overflowiogn on one line */
+    justify-content: space-between; /* extra space on a row to distribute evenly between children */
+    align-items: stretch; /* stretch each item on a row too occupy their entire height */
+}
+
+.col {
+    flex-basis: 30%; /* like width for flex box */
+
+    /* this is also a flexbox parent used to strech the card to same lenght using align items */
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
