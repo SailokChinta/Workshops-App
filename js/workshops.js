@@ -1,7 +1,7 @@
 // Immediately Invoked Function
 (function() {
     const workshopsList = document.querySelector( '#workshops-list' );
-
+    const fetchMessage = document.querySelector( '#fetch-message' );
     function fetchWorkshops () {
         return axios.get (`https://workshops-server.herokuapp.com/workshops`)
                     .then(response => {
@@ -38,14 +38,32 @@
         </li>`
     }
     
+    function showFetchMessage ( message, theme ) {
+        fetchMessage.innerHTML = message;
+        fetchMessage.style.display = 'block';
+        fetchMessage.className = `message message-${theme}`;
+    }
+
     function addWorkshops( workshops ) {
         workshops.forEach(workshop => addWorkshop(workshop)); 
         // workshops.forEach( addWorkshop ); same thing 
     }
 
+    function hideFetchMessage() {
+        fetchMessage.style.display = 'none';
+    }
+
     function init () {
+        showFetchMessage( 'Loading workshops', 'info' );
+
         fetchWorkshops()      // AJAX call
-            .then( workshops => addWorkshops(workshops))  // .then( addWorkshops ); same thing 
+            .then( workshops => {
+                hideFetchMessage();
+                addWorkshops(workshops)
+            })  // .then( addWorkshops ); same thing 
+            .catch (error => {
+               showFetchMessage( error.message, 'error' );
+            });
     }
 
     init();
