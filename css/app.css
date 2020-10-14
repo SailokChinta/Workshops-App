@@ -59,14 +59,29 @@
     align-items: stretch; /* stretch each item on a row too occupy their entire height */
 }
 
+/* always start with mobile screens ( 1 card at once hence flex-basis : 100% )  */
 .col {
-    flex-basis: 30%; /* like width for flex box */
+    flex-basis: 100%; /* like width for flex box */
 
     /* this is also a flexbox parent used to strech the card to same lenght using align items */
     display: flex;
     flex-direction: row;
     align-items: stretch;
 }
+
+@media all and ( min-width: 640px ) {
+    .col {
+        flex-basis: 47.5%;
+    }
+}
+
+
+@media all and ( min-width: 1024px ) {
+    .col {
+        flex-basis: 30%;
+    }
+}
+
 
 .message {
     display: none;
